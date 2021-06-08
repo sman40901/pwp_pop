@@ -1,6 +1,6 @@
 var az = [...'abcdefghijklmnopqrstuvwxyz'];
 var AZ = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-var num = [min, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+var num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
 function getArrayElementRandom(arr, max, min) {
     var r = Math.floor(
