@@ -15,7 +15,7 @@ function createRowAndCells(rIndex, table, txtItem) {
     var row = table.insertRow(rIndex);
     
     var cell = row.insertCell(0);
-    cell.id = chkItem + i;
+    cell.id = chkItem + i++;
     // var div1 = createDivElement('id1',txtItem,'');
     cell.innerHTML = (createCheckBox(chkItem + i));
     
@@ -25,7 +25,6 @@ function createRowAndCells(rIndex, table, txtItem) {
     // var div1 = createDivElement('id1',txtItem,'');
     // cell.innerHTML = txtItem;
     cell.innerHTML = createDivElement('div' + cell.id, txtItem, 'n')
-    i++;
 }
 
 function createCheckBox(chkId) {
@@ -38,10 +37,10 @@ function createCheckBox(chkId) {
 function done(id1) {
     // id1 = id1.replace(cellItem, '');
     var checkID = (chkItem + id1).trim();
-    // alert(checkID);
+    alert(checkID);
     var chk = document.getElementById(checkID);
     var div1 = document.getElementById('div' + cellItem + id1);
-    // alert(chk.checked)
+    alert(chk.checked)
     if (chk.checked == true) {
         div1.className = 'strike';
     } else {
