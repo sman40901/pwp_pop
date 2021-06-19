@@ -15,7 +15,7 @@ function createRowAndCells(rIndex, table, txtItem) {
     var row = table.insertRow(rIndex);
     
     var cell = row.insertCell(0);
-    cell.id = chkItem + ++i;
+    cell.id = chkItem + i++;
     // var div1 = createDivElement('id1',txtItem,'');
     cell.innerHTML = (createCheckBox(chkItem + i));
     
