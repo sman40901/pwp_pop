@@ -1,0 +1,37 @@
+{
+
+  "questions": [
+    {
+      "qid":1,
+      "question": "Choose 'A'",
+      "choiceType":"rd",
+      "point":5,
+      "selections": [{"choice":"A"},{"choice":"B"}],
+      "answer":[{"choice":"A"}]
+    },
+    {
+      "qid":2,
+      "question": "Choose 'B'",
+      "choiceType":"chk",
+      "point":10,
+      "selections": [{"choice":"A"},{"choice":"B"}],
+      "answer":[{"choice":"B"}]
+    },
+    {
+      "qid":3,
+      "question": "Choose 'C'",
+      "choiceType":"rd",
+      "point":5,
+      "selections": [{"choice":"A"},{"choice":"B"},{"choice":"C"}],
+      "answer":[{"choice":"C"}]
+    },
+    {
+      "qid":4,
+      "question": "Choose 'C' and 'D'",
+      "choiceType":"chk",
+      "point":5,
+      "selections": [{"choice":"A"},{"choice":"B"},{"choice":"C"},{"choice":"D"}],
+      "answer":[{"choice":"C"},{"choice":"D"}]
+    }
+  ]
+}
