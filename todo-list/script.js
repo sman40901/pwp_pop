@@ -15,32 +15,32 @@ function createRowAndCells(rIndex, table, txtItem) {
     var row = table.insertRow(rIndex);
     
     var cell = row.insertCell(0);
-    cell.id = chkItem + i++;
+    cell.id = chkItem + ++i;
     // var div1 = createDivElement('id1',txtItem,'');
-    cell.innerHTML = (createCheckBox(chkItem + i));
+    cell.innerHTML = (createCheckBox(cell.id));
     
     var cell = row.insertCell(1);
     cell.id = cellItem + i;
     // cell.divClassName = 'abc';
     // var div1 = createDivElement('id1',txtItem,'');
     // cell.innerHTML = txtItem;
-    cell.innerHTML = createDivElement('div' + cell.id, txtItem, 'n')
+    cell.innerHTML = createDivElement('div' + cell.id, txtItem, 'nostrike')
 }
 
 function createCheckBox(chkId) {
     return '<input type="checkbox" id="' + chkId
-        + '" name="' + chkId
+        // + '" name="' + chkId
         // + '" value="' + chkId
-        + '" onClick="done(\'{param}\')">'.replace('{param}', chkId.replace(chkItem,''));
+        + '" onClick="itemDone(\'{param}\')">'.replace('{param}', chkId.replace(chkItem,''));
 }
 
-function done(id1) {
+function itemDone(id1) {
     // id1 = id1.replace(cellItem, '');
     var checkID = (chkItem + id1).trim();
-    alert(checkID);
+    console.log(checkID);
     var chk = document.getElementById(checkID);
     var div1 = document.getElementById('div' + cellItem + id1);
-    alert(chk.checked)
+    console.log(chk.checked)
     if (chk.checked == true) {
         div1.className = 'strike';
     } else {
