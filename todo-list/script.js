@@ -1,6 +1,7 @@
 const chkItem = 'chkItem';
 const cellItem = 'cellTxt';
 const removeButton = 'removeItem';
+var i = 0;
 
 function addItem() {
     // alert(document.getElementById('todoTxt').value)
@@ -12,14 +13,14 @@ function addItem() {
 function createRowAndCells(rIndex, table, txtItem) {
 
     var row = table.insertRow(rIndex);
-    var i = 0;
-    var cell = row.insertCell(i);
-    cell.id = chkItem + i;
+    
+    var cell = row.insertCell(0);
+    cell.id = chkItem + i++;
     // var div1 = createDivElement('id1',txtItem,'');
     cell.innerHTML = (createCheckBox(chkItem + i));
-    i = 1;
-    var cell = row.insertCell(i);
-    cell.id = cellItem + 0;
+    
+    var cell = row.insertCell(1);
+    cell.id = cellItem + i;
     // cell.divClassName = 'abc';
     // var div1 = createDivElement('id1',txtItem,'');
     // cell.innerHTML = txtItem;
@@ -29,7 +30,7 @@ function createRowAndCells(rIndex, table, txtItem) {
 function createCheckBox(chkId) {
     return '<input type="checkbox" id="' + chkId
         + '" name="' + chkId
-        + '" value="' + chkId
+        // + '" value="' + chkId
         + '" onClick="done(\'{param}\')">'.replace('{param}', chkId.replace(chkItem,''));
 }
 
