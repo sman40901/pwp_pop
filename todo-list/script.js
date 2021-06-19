@@ -30,11 +30,11 @@ function createCheckBox(chkId) {
     return '<input type="checkbox" id="' + chkId
         + '" name="' + chkId
         + '" value="' + chkId
-        + '" onClick="done(\'{param}\')">'.replace('{param}', chkId.replace(chkItem, cellItem.trim()));
+        + '" onClick="done(\'{param}\')">'.replace('{param}', chkId.replace(chkItem,''));
 }
 
 function done(id1) {
-    id1 = id1.replace(cellItem, '');
+    // id1 = id1.replace(cellItem, '');
     var checkID = (chkItem + id1).trim();
     alert(checkID);
     var chk = document.getElementById(checkID);
