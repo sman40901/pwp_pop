@@ -37,10 +37,10 @@ function createCheckBox(chkId) {
 function done(id1) {
     // id1 = id1.replace(cellItem, '');
     var checkID = (chkItem + id1).trim();
-    alert(checkID);
+    // alert(checkID);
     var chk = document.getElementById(checkID);
     var div1 = document.getElementById('div' + cellItem + id1);
-    alert(chk.checked)
+    // alert(chk.checked)
     if (chk.checked == true) {
         div1.className = 'strike';
     } else {
