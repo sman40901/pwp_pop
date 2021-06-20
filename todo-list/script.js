@@ -3,30 +3,42 @@ const cellItem = 'cellTxt';
 const removeButton = 'removeItem';
 const td = 'TD';
 var i = 0;
+var rIndex =0;
 
 function addItem() {
     // alert(document.getElementById('todoTxt').value)
     var item = document.getElementById('todoTxt').value;
     var table = document.getElementById("todoItems");
-    createRowAndCells(0, table, item);
+    createRowAndCells(rIndex++, table, item);
 }
 
 function createRowAndCells(rIndex, table, txtItem) {
 
-    var row = table.insertRow(rIndex);
+    var row = table.insertRow(0);
+    row.id = 'row'+rIndex;
 
     var cell = row.insertCell(0);
     i += 1;
-    cell.id = chkItem +i+ td;
+    cell.id = chkItem + i + td;
     // var div1 = createDivElement('id1',txtItem,'');
     cell.innerHTML = (createCheckBox(chkItem + i));
 
-    var cell = row.insertCell(1);
+    cell = row.insertCell(1);
     cell.id = cellItem + i + td;
     // cell.divClassName = 'abc';
     // var div1 = createDivElement('id1',txtItem,'');
     // cell.innerHTML = txtItem;
-    cell.innerHTML = createDivElement('div' + cell.id, txtItem, 'nostrike')
+    cell.innerHTML = createDivElement('div' + cell.id, txtItem, 'nostrike');
+
+    cell = row.insertCell(2);
+    cell.id = cellItem + i + td + 2;
+    cell.innerHTML = createAbortButton(i, "Abort", 'Abort');
+}
+
+function abortItem(i){
+    var r = document.getElementById('row'+(i-1));
+    r.parentElement.removeChild(r);
+
 }
 
 function createCheckBox(chkId) {
@@ -65,6 +77,6 @@ function createAbortButton(chkId, val, btnName) {
     return '<input type="button" id="' + chkId
         + '" name="' + btnName
         + '" value="' + val
-        + '" onclick="abortItem("' + chkId + '")" />';
+        + '" onclick="abortItem(' + chkId + ')" />';
     // + '" onClick="itemDone(\'{param}\')">'.replace('{param}', chkId.replace(chkItem,''));
 }
