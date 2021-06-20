@@ -1,6 +1,7 @@
 const chkItem = 'chkItem';
 const cellItem = 'cellTxt';
 const removeButton = 'removeItem';
+const td = 'TD';
 var i = 0;
 
 function addItem() {
@@ -13,14 +14,15 @@ function addItem() {
 function createRowAndCells(rIndex, table, txtItem) {
 
     var row = table.insertRow(rIndex);
-    
+
     var cell = row.insertCell(0);
-    cell.id = chkItem + ++i;
+    i += 1;
+    cell.id = chkItem +i+ td;
     // var div1 = createDivElement('id1',txtItem,'');
-    cell.innerHTML = (createCheckBox(cell.id));
-    
+    cell.innerHTML = (createCheckBox(chkItem + i));
+
     var cell = row.insertCell(1);
-    cell.id = cellItem + i;
+    cell.id = cellItem + i + td;
     // cell.divClassName = 'abc';
     // var div1 = createDivElement('id1',txtItem,'');
     // cell.innerHTML = txtItem;
@@ -31,16 +33,17 @@ function createCheckBox(chkId) {
     return '<input type="checkbox" id="' + chkId
         // + '" name="' + chkId
         // + '" value="' + chkId
-        + '" onClick="itemDone(\'{param}\')">'.replace('{param}', chkId.replace(chkItem,''));
+        + '" onClick="itemDone(\'{param}\')">'.replace('{param}', chkId.replace(chkItem, ''));
 }
 
 function itemDone(id1) {
     // id1 = id1.replace(cellItem, '');
     var checkID = (chkItem + id1).trim();
-    console.log(checkID);
+    // console.log(checkID);
     var chk = document.getElementById(checkID);
-    var div1 = document.getElementById('div' + cellItem + id1);
-    console.log(chk.checked)
+    var div1 = document.getElementById('div' + cellItem + id1 + td);
+    // console.log('now 43')
+    // console.log(chk.checked)
     if (chk.checked == true) {
         div1.className = 'strike';
     } else {
@@ -56,4 +59,12 @@ function createDivElement(divId, divTxt, divClassName) {
     div1 += ">" + divTxt + "</div>";
     // alert(div1)
     return div1;
+}
+
+function createAbortButton(chkId, val, btnName) {
+    return '<input type="button" id="' + chkId
+        + '" name="' + btnName
+        + '" value="' + val
+        + '" onclick="abortItem("' + chkId + '")" />';
+    // + '" onClick="itemDone(\'{param}\')">'.replace('{param}', chkId.replace(chkItem,''));
 }
